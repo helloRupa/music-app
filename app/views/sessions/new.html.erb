@@ -1,6 +1,8 @@
+<% @title = 'Log In'%>
+
 <h1>Log In</h1>
 <%= render 'shared/errors'%>
 
 <%= render 'shared/login_form'%>
 
-<%= link_to 'Register', new_user_url %>
+<div><p>Don't have an account? <%= link_to 'Register', new_user_url %></p></div>

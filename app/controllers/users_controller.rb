@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in_user!(@user)
-      render plain: 'You logged in!'
+      redirect_to bands_url
     else
       flash.now[:error] = @user.errors
       render :new

@@ -13,3 +13,160 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+    --main-bg-color: #081b29;
+    --header-bg-color: #5c4956;
+    --off-white: #fff4f4;
+    --orange: #fb9a1c;
+    --btn-hover-color: #663d75;
+    --link-hover-color: #c793e3;
+ }
+
+ html, body, h1, div, input, a, p, ul, li {
+     background-color: transparent;
+     font-size: 16px;
+     text-decoration: none;
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     font-family: Montserrat, Arial, sans-serif;
+     font-weight: 400;
+     box-sizing: border-box;
+     color: var(--orange);
+     text-align: left;
+     border: none;
+ }
+
+ body {
+     width: 100%;
+     background-color: var(--main-bg-color);
+ }
+
+ h1 {
+     font-size: 2em;
+     font-family: inherit;
+     text-align: center;
+ }
+
+ header {
+     background-color: var(--header-bg-color);
+     padding: 15px;
+     margin-bottom: 15px;
+     font-family: Gugi, sans-serif;
+     font-size: 1.5em;
+ }
+
+ h1.logo {
+     font-family: inherit;
+     font-size: inherit;
+     text-align: left;
+     display: inline-block;
+ }
+
+ header ul {
+     float: right;
+ }
+
+ header li {
+     display: inline-block;
+     font-size: 0.8em;
+ }
+
+ header form {
+     width: auto;
+ }
+
+ header input[type="submit"] {
+     background-color: transparent;
+     font-size: 1em;
+     margin: 0;
+ }
+
+ header input[type="submit"]:hover {
+     background-color: transparent;
+     color: var(--orange);
+ }
+
+ main {
+     width: 90%;
+     margin: 60px auto;
+ }
+
+ main h1 {
+     margin: 30px 0;
+ }
+
+ .error {
+    text-align: center;
+    margin: 15px 0 30px 0;
+    color: var(--off-white);
+ }
+
+ .error p {
+     text-align: inherit;
+     color: inherit;
+     padding: 1px 0;
+ }
+
+label {
+    display: block;
+    padding: 5px 0;
+}
+
+form {
+    width: 100%;
+    max-width: 340px;
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 5px;
+    background-color: var(--off-white);
+    color: var(--main-bg-color);
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: var(--orange);
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    color: var(--off-white);
+    font-size: 1.25em;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: var(--btn-hover-color);
+}
+
+p {
+    color: var(--off-white);
+    font-size: 1em;
+    margin: 60px;
+    text-align: center;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+@media only screen and (min-width: 600px) {
+    header {
+        font-size: 2em;
+    }
+
+    form {
+        width: 60%;
+    }
+
+    header li {
+        font-size: 1em;
+    }
+}

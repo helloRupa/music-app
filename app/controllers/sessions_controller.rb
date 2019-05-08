@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in_user!(@user)
-      render plain: @user.email
+      redirect_to bands_url
     else
       flash.now[:error] = 'Wrong username or password'
       render :new
