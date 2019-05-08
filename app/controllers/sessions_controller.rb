@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
       session[:session_token] = nil
     end
 
-    render plain: 'You logged out'
+    redirect_to new_session_url
   end
 end

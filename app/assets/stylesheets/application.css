@@ -64,6 +64,11 @@
      display: inline-block;
  }
 
+ .logo a {
+     font-family: inherit;
+     font-size: inherit;
+ }
+
  header ul {
      float: right;
  }

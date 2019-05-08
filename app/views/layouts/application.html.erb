@@ -12,12 +12,14 @@
 
   <body>
     <header>
-      <h1 class='logo'>Music App</h1>
       <% if current_user %>
+        <h1 class='logo'><%= link_to 'Music App', bands_url %></h1>
         <ul>
           <li><%= current_user.email %></li>
           <li><%= button_to "Logout", session_url(current_user), method: :delete %></li>
         </ul>
+      <% else %>
+        <h1 class='logo'><%= link_to 'Music App', new_session_url %></h1>
       <% end %>
     </header>
     <main>
