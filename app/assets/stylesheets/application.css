@@ -21,6 +21,7 @@
     --orange: #fb9a1c;
     --btn-hover-color: #663d75;
     --link-hover-color: #c793e3;
+    --band-btn-bg-color: #4bb1e0;
  }
 
  html, body, h1, div, input, a, p, ul, li {
@@ -96,6 +97,7 @@
  main {
      width: 90%;
      margin: 60px auto;
+     position: relative;
  }
 
  main h1 {
@@ -147,8 +149,9 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, .link-btn:hover {
     background-color: var(--btn-hover-color);
+    color: var(--off-white);
 }
 
 p {
@@ -160,6 +163,42 @@ p {
 
 a:hover {
     color: var(--link-hover-color);
+}
+
+.right {
+    text-align: right;
+}
+
+.link-btn {
+    background-color: var(--orange);
+    color: var(--off-white);
+    padding: 10px;
+}
+
+.band-btn {
+    padding: 15px;
+    background-color: var(--btn-hover-color);
+    color: var(--off-white);
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+    margin: 15px;
+}
+
+.band-btn:hover {
+    background-color: var(--band-btn-bg-color);
+    color: var(--off-white);
+}
+
+input.delete-btn {
+    width: auto;
+    font-size: 1em;
+}
+
+.right form {
+    width: auto;
+    margin: 30px 0;
+    max-width: none;
 }
 
 @media only screen and (min-width: 600px) {

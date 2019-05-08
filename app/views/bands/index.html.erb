@@ -1,9 +1,10 @@
 <% @title = 'Bands' %>
 
 <h1>Bands</h1>
+<div class="right">
+    <%= link_to 'Add a Band', new_band_url, class: 'link-btn' %>
+</div>
 
 <% @bands.each do |band| %>
-    <div><%= link_to band.name, band_url(band) %></div>
+    <%= link_to band.name, band_url(band), class: 'band-btn' %>
 <% end %>
-
-<%= link_to 'Add a Band', new_band_url %>
