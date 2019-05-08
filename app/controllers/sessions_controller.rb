@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in_user!(@user)
-      render json: @user.email
+      render plain: @user.email
     else
       flash.now[:error] = 'Wrong username or password'
       render :new
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
       session[:session_token] = nil
     end
 
-    render text: 'You logged out'
+    render plain: 'You logged out'
   end
 end

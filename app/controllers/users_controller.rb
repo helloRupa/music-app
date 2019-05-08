@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in_user!(@user)
-      render text: 'You logged in!'
+      render plain: 'You logged in!'
     else
       flash.now[:error] = @user.errors
       render :new
