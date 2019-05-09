@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
     user.reset_session_token!
     session[:session_token] = user.session_token
   end
+
+  def not_logged_in
+    return if logged_in?
+    redirect_to new_session_url
+  end
+
+  def logged_in
+    return unless logged_in?
+    redirect_to bands_url
+  end
 end
