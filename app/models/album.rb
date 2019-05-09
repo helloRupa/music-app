@@ -3,4 +3,6 @@ class Album < ApplicationRecord
   validates :studio, inclusion: { in: [true, false], message: 'Boolean values only' }
   
   belongs_to :band
+
+  has_many :tracks
 end
