@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :not_logged_in
+
   def new
     @album = Album.new(band_id: params[:band_id])
     @bands = Band.all
@@ -20,6 +22,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find_by_id(params[:id])
     @band = @album.band
+    @tracks = @album.tracks
     render :show
   end
 

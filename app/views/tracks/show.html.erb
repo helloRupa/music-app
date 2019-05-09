@@ -1,0 +1,43 @@
+<% @title = "#{@album.title}: #{@track.title}" %>
+
+<h1><%= @track.title %></h1>
+
+<%= link_to "<< Back to #{@album.title.capitalize}", album_url(@album), class: "back-link" %>
+
+<div class="center-right">
+    <%= link_to 'Update Track', edit_track_url(@track), class: 'link-btn' %>
+    <%= button_to 'Delete Track', track_url(@track), method: :delete, class: 'delete-btn' %>
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Album</th>
+            <td><%= @album.title %></td>
+        </tr>
+        <tr>
+            <th>Track Number</th>
+            <td><%= @track.ord %></td>
+        </tr>
+        <tr>
+            <th>Track Type</th>
+            <td>
+                <% if @track.regular %>
+                    Regular
+                <% else %>
+                    Bonus
+                <% end %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Lyrics</h2>
+<div class="lyrics">
+    <% if @track.lyrics.nil? || @track.lyrics.empty? %>
+        No lyrics added yet.
+    <% else %>
+        <%= @track.lyrics %>
+    <% end %>
+</div>
+
