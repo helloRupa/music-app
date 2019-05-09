@@ -45,10 +45,10 @@ class BandsController < ApplicationController
   end
 
   def destroy
-    @band = Band.find_by_id(params[:id])
+    band = Band.find_by_id(params[:id])
 
-    if @band
-      @band.destroy
+    if band
+      band.destroy
       redirect_to bands_url
     end
   end

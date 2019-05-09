@@ -238,6 +238,13 @@ fieldset li {
     text-align: center;
 }
 
+.back-link {
+    color: var(--off-white);
+    float: none;
+    display: block;
+    text-align: center;
+}
+
 @media only screen and (min-width: 600px) {
     header {
         font-size: 2em;
@@ -253,5 +260,9 @@ fieldset li {
 
     .center-right {
         text-align: right;
+    }
+
+    .back-link {
+        float: left;
     }
 }
