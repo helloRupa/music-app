@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :tracks, only: [:create, :edit, :update, :show, :destroy]
 
+  resources :notes, only: [:create, :destroy]
+
   root 'sessions#new'
 end

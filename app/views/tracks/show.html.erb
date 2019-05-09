@@ -32,12 +32,17 @@
     </tbody>
 </table>
 
-<h2>Lyrics</h2>
-<div class="lyrics">
-    <% if @track.lyrics.nil? || @track.lyrics.empty? %>
-        No lyrics added yet.
-    <% else %>
-        <%= @track.lyrics %>
-    <% end %>
-</div>
+<section class="lyrics">
+    <h2>Lyrics</h2>
+        <% if @track.lyrics.nil? || @track.lyrics.empty? %>
+            <p>No lyrics added yet.</p>
+        <% else %>
+            <%= @track.lyrics %>
+        <% end %>
+</section>
+
+<section class="notes">
+    <h2>Notes</h2>
+        <%= render 'notes/note', notes: @notes %>
+</section>
 

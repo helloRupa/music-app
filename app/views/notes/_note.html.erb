@@ -1,0 +1,13 @@
+<% if notes.nil? || notes.empty? %>
+    <p>No notes yet. Wanna add some?</p>
+<% else %>
+    <% note_authors = notes.includes(:user) %>
+
+    <% notes.each_with_index do |note, idx| %>
+        <div>
+            <p class="left"><%= note.body %></p>
+            <p class="right">- <%= note_authors[idx].user.email %></p>
+            <%= button_to 'Delete', note_url(note), method: :delete, class: 'delete-btn' %>
+        </div>
+    <% end %>
+<% end %>

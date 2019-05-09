@@ -40,6 +40,7 @@ class TracksController < ApplicationController
   def show
     @track = Track.find_by_id(params[:id])
     @album = @track.album
+    @notes = @track.notes
     render :show
   end
 

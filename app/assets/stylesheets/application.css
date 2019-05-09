@@ -266,9 +266,10 @@ td {
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: 300;
     text-align: center;
     margin: 15px 0;
+    font-size: 2em;
 }
 
 .lyrics {
@@ -276,12 +277,41 @@ h2 {
     text-align: center;
 }
 
+section {
+    margin: 60px 0;
+}
+
+section p {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.notes div {
+    background-color: var(--header-bg-color);
+    width: 100%;
+    margin: 30px auto;
+}
+
+.left {
+    text-align: left;
+}
+
+.notes form {
+    max-width: none;
+    text-align: right;
+    width: auto;
+}
+
+.notes input[type="submit"] {
+    margin: 0;
+}
+
 @media only screen and (min-width: 600px) {
     header {
         font-size: 2em;
     }
 
-    form {
+    form, .notes div {
         width: 60%;
     }
 
