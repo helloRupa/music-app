@@ -250,6 +250,8 @@ textarea {
     background-color: var(--off-white);
     width: 100%;
     height: 250px;
+    color: var(--main-bg-color);
+    padding: 5px;
 }
 
 table {

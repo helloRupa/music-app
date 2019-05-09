@@ -41,6 +41,11 @@
         <% end %>
 </section>
 
+<section>
+    <%= render 'shared/errors' %>
+    <%= render 'notes/form', track_id: @track.id %>
+</section>
+
 <section class="notes">
     <h2>Notes</h2>
         <%= render 'notes/note', notes: @notes %>

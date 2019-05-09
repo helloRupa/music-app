@@ -7,7 +7,9 @@
         <div>
             <p class="left"><%= note.body %></p>
             <p class="right">- <%= note_authors[idx].user.email %></p>
-            <%= button_to 'Delete', note_url(note), method: :delete, class: 'delete-btn' %>
+            <% if current_user.id == note.user_id %>
+                <%= button_to 'Delete', note_url(note), method: :delete, class: 'delete-btn' %>
+            <% end %>
         </div>
     <% end %>
 <% end %>
