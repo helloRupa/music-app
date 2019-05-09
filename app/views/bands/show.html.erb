@@ -1,11 +1,22 @@
 <% @title = @band.name %>
 
-<h1><%= @band.name %></h1>
+<h1><%= @band.name %> Albums</h1>
 
-<div class="right">
+<div class="center-right">
     <%= link_to 'Update Band', edit_band_url(@band), class: 'link-btn' %>
+    <%= button_to 'Delete Band', band_url(@band), method: :delete, class: 'delete-btn' %>
 </div>
 
-<div class="right">
-    <%= button_to 'Delete Band', band_url(@band), method: :delete, class: 'delete-btn' %>
+<div class="albums">
+    <% unless @albums.empty? %>
+        <% @albums.each do |album| %>
+            <%= link_to album.title, album_url(album), class: 'band-btn' %>
+        <% end %>
+    <% else %>
+        <p>No albums added for this artist yet.</p>
+    <% end %>
+</div>
+
+<div class="center-right">
+    <%= link_to 'Add Album', new_band_album_url(@band), class: 'link-btn' %>
 </div>
