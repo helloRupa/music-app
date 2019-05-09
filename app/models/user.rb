@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   after_initialize :ensure_session_token
 
+  has_many :notes
+
   def password=(pw)
     @password = pw
     self.password_digest = BCrypt::Password.create(pw)
