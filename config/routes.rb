@@ -22,5 +22,7 @@ Rails.application.routes.draw do
 
   resources :notes, only: [:create, :destroy]
 
+  resources :search, only: [:index]
+
   root 'sessions#new'
 end
