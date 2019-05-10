@@ -3,11 +3,14 @@ class SearchController < ApplicationController
 
   def index
     @query = params[:query]
-    query = "%#{@query.upcase}%"
+    @bands, @albums, @tracks = [], [], []
 
-    @bands = Band.where('UPPER(name) LIKE ?', query)
-    @albums = Album.where('UPPER(title) LIKE ?', query)
-    @tracks = Track.where('UPPER(title) LIKE ? OR UPPER(lyrics) LIKE ?', query, query)
+    unless @query.empty?
+      query = "%#{@query.upcase}%"
+      @bands = Band.where('UPPER(name) LIKE ?', query)
+      @albums = Album.where('UPPER(title) LIKE ?', query)
+      @tracks = Track.where('UPPER(title) LIKE ? OR UPPER(lyrics) LIKE ?', query, query)
+    end
 
     render :index
   end

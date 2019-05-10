@@ -2,6 +2,7 @@
 
 <h1>Search Results: <%= @query %></h1>
 
+<section class="search">
 <h2>Bands</h2>
 <% if @bands.empty?%>
     <p>No bands found.</p>
@@ -10,7 +11,9 @@
         <%= link_to band.name, band_url(band) %>
     <% end %>
 <% end %>
+</section>
 
+<section class="search">
 <h2>Albums</h2>
     <% if @albums.empty?%>
 <p>No albums found.</p>
@@ -19,7 +22,9 @@
         <%= link_to album.title, album_url(album) %>
     <% end %>
 <% end %>
+</section>
 
+<section class="search">
 <h2>Tracks</h2>
 <% if @tracks.empty?%>
     <p>No tracks found.</p>
@@ -28,3 +33,4 @@
         <%= link_to track.title, track_url(track) %>
     <% end %>
 <% end %>
+</section>

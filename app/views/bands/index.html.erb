@@ -5,6 +5,8 @@
     <%= link_to 'Add a Band', new_band_url, class: 'link-btn' %>
 </div>
 
-<% @bands.each do |band| %>
-    <%= link_to band.name, band_url(band), class: 'band-btn' %>
-<% end %>
+<section>
+    <% @bands.each do |band| %>
+        <%= link_to band.name, band_url(band), class: 'band-btn' %>
+    <% end %>
+</section>

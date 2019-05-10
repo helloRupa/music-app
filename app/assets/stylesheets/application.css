@@ -309,6 +309,43 @@ section p {
     margin: 0;
 }
 
+div.search {
+    width: 100%;
+    padding-right: 0;
+}
+
+.search form {
+    width: auto;
+    display: table;
+    text-align: center;
+    max-width: none;
+    margin: 0 auto;
+}
+
+.search input[type="text"] {
+    display: table-cell;
+    width: 200px;
+    vertical-align: baseline;
+}
+
+.search input[type="submit"] {
+    width: auto;
+    padding: 2px 10px;
+    display: table-cell;
+    vertical-align: top;
+    margin: 0;  
+}
+
+.search a {
+    display: block;
+    text-align: center;
+    color: var(--off-white);
+}
+
+.search a:hover {
+    color: var(--link-hover-color);
+}
+
 @media only screen and (min-width: 600px) {
     header {
         font-size: 2em;
@@ -328,5 +365,14 @@ section p {
 
     .back-link {
         float: left;
+    }
+
+    div.search {
+        padding-right: 30px;
+    }
+
+    .search form {
+        width: 100%;
+        text-align: right;
     }
 }
