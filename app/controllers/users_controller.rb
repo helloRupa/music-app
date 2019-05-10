@@ -10,10 +10,8 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      msg = ActivationMailer.activation_email(@user)
-		  msg.deliver_now
-      flash[:error] = 'Please click the link in your activation email'
-      redirect_to new_session_url
+      @url = activate_users_url(activation_token: @user.activation_token)
+      render :fake_email
     else
       flash.now[:error] = @user.errors
       render :new
