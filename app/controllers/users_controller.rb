@@ -10,12 +10,25 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      log_in_user!(@user)
-      redirect_to bands_url
+      msg = ActivationMailer.activation_email(@user)
+		  msg.deliver_now
+      flash[:error] = 'Please click the link in your activation email'
+      redirect_to new_session_url
     else
       flash.now[:error] = @user.errors
       render :new
     end
+  end
+
+  def activate
+    user = User.find_by_activation_token(params[:activation_token])
+
+    if user
+      user.activated = true
+      user.save
+    end
+
+    redirect_to new_session_url
   end
 
   private
