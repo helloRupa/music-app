@@ -1,6 +1,7 @@
 <% @title = "#{@band.name.capitalize}'s #{@album.title}" %>
+<% album_type = @album.studio ? 'Studio' : 'Live' %>
 
-<h1><%= @band.name.capitalize %>: <%= @album.title %></h1>
+<h1><%= @band.name.capitalize %>: <%= @album.title %> (<%= album_type %>)</h1>
 
 <%= link_to "<< Back to #{@band.name.capitalize}", band_url(@band), class: "back-link" %>
 
