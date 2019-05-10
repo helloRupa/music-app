@@ -37,7 +37,7 @@
         <% if @track.lyrics.nil? || @track.lyrics.empty? %>
             <p>No lyrics added yet.</p>
         <% else %>
-            <%= @track.lyrics %>
+            <%= ugly_lyrics(@track.lyrics) %>
         <% end %>
 </section>
 

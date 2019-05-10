@@ -25,7 +25,7 @@
     --delete-btn-bg-color: #ef3737;
  }
 
- html, body, h1, h2, div, input, a, p, ul, li, select, fieldset, textarea, table, td, tr, th {
+ html, body, h1, h2, div, input, a, p, ul, li, select, fieldset, textarea, table, td, tr, th, pre {
      background-color: transparent;
      font-size: 16px;
      text-decoration: none;
@@ -38,6 +38,7 @@
      color: var(--orange);
      text-align: left;
      border: none;
+     line-height: 1.5;
  }
 
  body {
@@ -274,7 +275,7 @@ h2 {
     font-size: 2em;
 }
 
-.lyrics {
+.lyrics, pre {
     color: var(--off-white);
     text-align: center;
 }
