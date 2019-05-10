@@ -1,13 +1,14 @@
 class User < ApplicationRecord
   attr_reader :password
 
-  validates :email, :session_token, :password_digest, presence: true
+  validates :email, :session_token, :password_digest, :activation_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_activation_token
 
-  has_many :notes
+  has_many :notes,
+    dependent: :destroy
 
   def password=(pw)
     @password = pw
@@ -25,6 +26,10 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  def ensure_activation_token
+    self.activation_token ||= self.class.generate_session_token
   end
 
   def self.generate_session_token

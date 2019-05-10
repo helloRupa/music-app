@@ -8,12 +8,13 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
+    err = !@user ? 'Wrong username or password' : 'Please click the link in your activation email'
 
-    if @user
+    if @user && @user.activated
       log_in_user!(@user)
       redirect_to bands_url
     else
-      flash.now[:error] = 'Wrong username or password'
+      flash.now[:error] = err
       render :new
     end
   end
