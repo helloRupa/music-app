@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find_by_id(params[:id])
     @band = @album.band
-    @tracks = @album.tracks
+    @tracks = @album.tracks.order(:ord)
     render :show
   end
 
