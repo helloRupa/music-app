@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   before_action :not_logged_in
 
   def index
-    @bands = Band.all.order(:name)
+    @bands = Band.all
     render :index
   end
 
@@ -40,7 +40,7 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find_by_id(params[:id])
-    @albums = @band.albums.order(:title)
+    @albums = @band.albums
     render :show
   end
 
