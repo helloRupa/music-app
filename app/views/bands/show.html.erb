@@ -1,6 +1,7 @@
 <% @title = @band.name %>
 
 <h1><%= @band.name %> Albums</h1>
+<%= link_to "<< Back to All Bands", bands_url, class: "back-link" %>
 
 <div class="center-right">
     <%= link_to 'Update Band', edit_band_url(@band), class: 'link-btn' %>
