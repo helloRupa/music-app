@@ -20,6 +20,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    user = User.find_by_activation_token(params[:activation_token])
+
+    if user
+      user.activated = true
+      user.save
+    end
+
+    redirect_to new_session_url
+  end
+
   private
 
   def user_params
