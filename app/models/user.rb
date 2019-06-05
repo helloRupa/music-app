@@ -2,7 +2,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :email, :session_token, :password_digest, :activation_token, presence: true
-  validates :email, :session_token, uniqueness: true
+  validates :email, :session_token, :activation_token, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   after_initialize :ensure_session_token, :ensure_activation_token
@@ -29,11 +29,21 @@ class User < ApplicationRecord
   end
 
   def ensure_activation_token
-    self.activation_token ||= self.class.generate_session_token
+    self.activation_token ||= self.class.generate_activation_token
   end
 
   def self.generate_session_token
-    SecureRandom::urlsafe_base64(16)
+    generate_token(:find_by_session_token)
+  end
+
+  def self.generate_activation_token
+    generate_token(:find_by_activation_token)
+  end
+
+  def self.generate_token(find_by_method)
+    token = SecureRandom::urlsafe_base64(16)
+    token = SecureRandom::urlsafe_base64(16) while User.send(find_by_method, token)
+    token
   end
 
   def self.find_by_credentials(email, pw)
